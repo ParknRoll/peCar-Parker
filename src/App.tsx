@@ -7,6 +7,7 @@ const App = () => {
 
   return (
     <div>
+      <h1 style={{ textAlign: "center" }}>peCar-Parker</h1>
       <Search {...{ setFilteredCarparks }} />
       <Display carparks={filteredCarparks} />
     </div>
