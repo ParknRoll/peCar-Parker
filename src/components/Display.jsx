@@ -28,11 +28,13 @@ const Display = (props) => {
       </Park>
       {props.carparks.map((carpark) => (
         <Park key={carpark.number}>
-          <Info>{carpark.number}</Info>
-          <Info>{carpark.lots_type}</Info>
+          <Info>{carpark.carpark_no}</Info>
+          <Info>{carpark.lot_type}</Info>
           <Info>{carpark.lots_total}</Info>
           <Info>{carpark.lots_available}</Info>
-          <Info>{carpark.updated_datetime}</Info>
+          <Info>{carpark.address}</Info>
+          <Info>{carpark.free_parking}</Info>
+          <Info>{carpark.night_parking}</Info>
         </Park>
       ))}
     </Container>

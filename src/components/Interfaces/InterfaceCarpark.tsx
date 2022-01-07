@@ -1,7 +1,9 @@
 export default interface ICarpark {
-  carpark_number: number;
+  carpark_no: string;
   lot_type: string;
   lots_total: number;
   lots_available: number;
-  updated_datetime: string;
+  address: string;
+  free_parking: string;
+  night_parking: string;
 }
