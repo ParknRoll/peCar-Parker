@@ -11,7 +11,7 @@ const App = () => {
 
   return (
     <div>
-      <Display carparks={carparks} />
+      <Display carparks={filteredCarparks} />
     </div>
   );
 };
