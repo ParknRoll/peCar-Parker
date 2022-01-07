@@ -58,7 +58,7 @@ const Search = ({
           type="text"
           value={location}
           onChange={handleChange}
-          placeholder="Where are you?"
+          placeholder="Location..."
           autoFocus
         />
         <Button type="submit">
