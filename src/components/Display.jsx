@@ -33,12 +33,16 @@ const Display = (props) => {
         <Header style={{ flex: 3 }}>Address</Header>
         <Header>Lots</Header>
       </Park>
-      {props.carparks.map((carpark) => (
-        <Park key={carpark.carpark_no}>
-          <Info style={{ flex: 3 }}>{carpark.address}</Info>
-          <Info>{`${carpark.lots_available} / ${carpark.lots_total}`}</Info>
-        </Park>
-      ))}
+      {props.carparks.length === 0 ? (
+        <div style={{ textAlign: "center" }}>No Results Found!</div>
+      ) : (
+        props.carparks.map((carpark) => (
+          <Park key={carpark.carpark_no}>
+            <Info style={{ flex: 3 }}>{carpark.address}</Info>
+            <Info>{`${carpark.lots_available} / ${carpark.lots_total}`}</Info>
+          </Park>
+        ))
+      )}
     </Container>
   );
 };
