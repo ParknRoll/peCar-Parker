@@ -29,6 +29,7 @@ const Button = styled.button`
   flex: 1;
   border: none;
   background-color: transparent;
+  text-align: right;
   &:hover {
     cursor: pointer;
   }
