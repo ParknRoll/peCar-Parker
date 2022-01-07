@@ -23,7 +23,7 @@ export const fetchCarparks = (
   // this regex removes all that is not alphanumeric and space character
   const filteredLocation = location.toUpperCase().replace(/[^A-Z0-9 ]/, "");
   fetch(
-    `https://data.gov.sg/api/action/datastore_search?resource_id=139a3035-e624-4f56-b63f-89ae28d4ae4c&limit=5&q=${filteredLocation}`
+    `https://data.gov.sg/api/action/datastore_search?resource_id=139a3035-e624-4f56-b63f-89ae28d4ae4c&q=jurong`
   ).then((response) => {
     response
       .json()
