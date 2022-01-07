@@ -49,6 +49,14 @@ export const fetchCarparks = (
             carparksFormatted.push(result);
           }
         });
+
+        carparksFormatted.sort((a, b) => {
+          if (a.lots_available === b.lots_available) {
+            return b.lots_total - a.lots_total;
+          } else {
+            return b.lots_available - a.lots_available;
+          }
+        });
         setFilteredCarparks(carparksFormatted);
       })
       .catch((error) => console.log(error));
