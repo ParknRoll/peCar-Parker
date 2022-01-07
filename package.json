@@ -1,7 +1,7 @@
 {
+  "homepage": "https://parknroll.github.io/peCar-Parker",
   "name": "my-app",
   "version": "0.1.0",
-  "homepage": "https://ParknRoll.github.io/peCar-parker",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.12.3",
