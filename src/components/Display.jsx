@@ -40,7 +40,12 @@ const Display = (props) => {
       ) : (
         props.carparks.map((carpark) => (
           <Park key={carpark.carpark_no}>
-            <Info style={{ flex: 3 }}>{carpark.address}</Info>
+            <Info
+              style={{ flex: 3 }}
+              onClick={() => props.displayModal(carpark)}
+            >
+              {carpark.address}
+            </Info>
             <Info>{`${carpark.lots_available} / ${carpark.lots_total}`}</Info>
           </Park>
         ))
