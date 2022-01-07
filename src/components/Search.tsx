@@ -4,7 +4,8 @@ import styled from "styled-components";
 import { SearchOutlined } from "@material-ui/icons";
 
 const SearchContainer = styled.div`
-  border: 1px black solid;
+  display: flex;
+  justify-content: center;
   align-items: center;
   margin: 1% 30%;
 `;
@@ -17,6 +18,7 @@ const Input = styled.input`
   &:focus {
     outline: none;
   }
+  border: 1px black solid;
 `;
 
 const Form = styled.form`
@@ -26,10 +28,9 @@ const Form = styled.form`
 `;
 
 const Button = styled.button`
-  flex: 1;
   border: none;
   background-color: transparent;
-  text-align: right;
+  margin-left: -30px;
   &:hover {
     cursor: pointer;
   }
@@ -53,7 +54,7 @@ const Search = ({
 
   return (
     <SearchContainer>
-      <Form action="" onSubmit={handleSubmit} style={{ textAlign: "center" }}>
+      <Form action="" onSubmit={handleSubmit}>
         <Input
           type="text"
           value={location}
@@ -62,7 +63,7 @@ const Search = ({
           autoFocus
         />
         <Button type="submit">
-          <SearchOutlined style={{ verticalAlign: "middle" }} />
+          <SearchOutlined />
         </Button>
       </Form>
     </SearchContainer>
