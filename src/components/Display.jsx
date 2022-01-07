@@ -20,10 +20,12 @@ const Park = styled.div`
 const Header = styled.div`
   flex: 1;
   font-weight: 700;
+  padding: 0.5%;
 `;
 
 const Info = styled.div`
   flex: 1;
+  padding: 0.5%;
 `;
 
 const Display = (props) => {
