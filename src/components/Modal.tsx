@@ -24,6 +24,8 @@ const FocusedCarpark = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+  width: 85%;
+  padding: 1.5%;
   background-color: rgba(255, 255, 255);
 `;
 
@@ -50,7 +52,7 @@ const Modal = ({
           style={{
             alignSelf: "flex-end",
             transform: "scale(1.5)",
-            margin: "1rem",
+            cursor: "pointer",
           }}
           onClick={hideModal}
         />

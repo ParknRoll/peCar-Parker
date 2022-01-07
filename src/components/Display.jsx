@@ -20,12 +20,12 @@ const Park = styled.div`
 const Header = styled.div`
   flex: 1;
   font-weight: 700;
-  padding: 0.5%;
+  padding: 0.5% 1%;
 `;
 
 const Info = styled.div`
   flex: 1;
-  padding: 0.5%;
+  padding: 0.5% 1%;
 `;
 
 const Display = (props) => {
@@ -43,7 +43,7 @@ const Display = (props) => {
         props.carparks.map((carpark) => (
           <Park key={carpark.carpark_no}>
             <Info
-              style={{ flex: 3 }}
+              style={{ flex: 3, cursor: "pointer" }}
               onClick={() => props.displayModal(carpark)}
             >
               {carpark.address}

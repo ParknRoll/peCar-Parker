@@ -14,26 +14,25 @@ const Input = styled.input`
   font-size: 20px;
   border: none;
   vertical-align: middle;
+  padding: 5px;
   flex: 9;
   &:focus {
     outline: none;
   }
-  border: 1px black solid;
 `;
 
 const Form = styled.form`
   padding: 1%;
   display: flex;
   justify-content: space-between;
+  border: 1px black solid;
 `;
 
 const Button = styled.button`
   border: none;
+  flex: 1;
   background-color: transparent;
-  margin-left: -30px;
-  &:hover {
-    cursor: pointer;
-  }
+  cursor: pointer;
 `;
 
 const Search = ({
@@ -63,7 +62,7 @@ const Search = ({
           autoFocus
         />
         <Button type="submit">
-          <SearchOutlined />
+          <SearchOutlined style={{ verticalAlign: "middle" }} />
         </Button>
       </Form>
     </SearchContainer>
