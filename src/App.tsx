@@ -1,11 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
-import { fetchAvailability } from "./Functions/Fetch";
+import { fetchAvailability, fetchInformation } from "./Functions/Fetch";
 
 const App = () => {
+  const [state, setstate] = useState(fetchAvailability());
+
+  const updateState = () => setstate(fetchAvailability());
+
   useEffect(() => {
-    fetchAvailability();
+    const internal = setInterval(updateState, 60000);
+    return () => {
+      clearInterval(internal);
+    };
   }, []);
+
+  fetchInformation();
 
   return (
     <div className="App">
