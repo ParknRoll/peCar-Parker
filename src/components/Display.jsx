@@ -27,7 +27,7 @@ const Display = (props) => {
         <h1>Last Updated</h1>
       </Park>
       {props.carparks.map((carpark) => (
-        <Park key={carpark.number}>
+        <Park key={carpark.carpark_no}>
           <Info>{carpark.carpark_no}</Info>
           <Info>{carpark.lot_type}</Info>
           <Info>{carpark.lots_total}</Info>
