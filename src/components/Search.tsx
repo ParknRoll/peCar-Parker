@@ -1,11 +1,34 @@
-import { all_vehicles_types } from "./Interfaces/InterfaceSearch";
+import { useState } from "react";
+import { fetchCarparkAvailability } from "../Functions/Fetch";
 
-const Search = () => {
+const Search = ({
+  setFilteredCarparks,
+}: {
+  setFilteredCarparks: React.Dispatch<React.SetStateAction<any[]>>;
+}) => {
+  const [location, setLocation] = useState("");
+
+  const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
+    event.preventDefault();
+    fetchCarparkAvailability(location, setFilteredCarparks);
+  };
+
+  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+    setLocation(event.target.value);
+  };
+
   return (
     <div>
-      {all_vehicles_types.map((vehicle_type, index) => (
-        <h1 key={index}>{vehicle_type}</h1>
-      ))}
+      <form action="" onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={location}
+          onChange={handleChange}
+          placeholder="Where are you?"
+          autoFocus
+        />
+        <button type="submit">Find me a carpark!</button>
+      </form>
     </div>
   );
 };

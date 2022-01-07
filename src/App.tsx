@@ -1,16 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Display from "./components/Display";
-import { fetchCarparkAvailability } from "./Functions/Fetch";
+import Search from "./components/Search";
 
 const App = () => {
   const [filteredCarparks, setFilteredCarparks] = useState<any[]>([]);
 
-  useEffect(() => {
-    fetchCarparkAvailability("aljunied", setFilteredCarparks);
-  }, []); // temporary, we will have to call fetchData with name that user has inputted.
-
   return (
     <div>
+      <Search {...{ setFilteredCarparks }} />
       <Display carparks={filteredCarparks} />
     </div>
   );
