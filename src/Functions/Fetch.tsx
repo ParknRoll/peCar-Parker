@@ -25,31 +25,32 @@ export const fetchCarparks = (
   fetch(
     `https://data.gov.sg/api/action/datastore_search?resource_id=139a3035-e624-4f56-b63f-89ae28d4ae4c&limit=5&q=${filteredLocation}`
   ).then((response) => {
-    response.json().then((data) => {
-      const carparksFromAPI = data.result.records;
-      const carparksFormatted: ICarpark[] = carparksFromAPI.map(
-        (carpark: {
-          car_park_no: string;
-          address: string;
-          free_parking: string;
-          night_parking: string;
-        }): ICarpark => {
+    response
+      .json()
+      .then((data) => {
+        const carparksFromAPI: any[] = data.result.records;
+        const carparksFormatted: ICarpark[] = [];
+        carparksFromAPI.forEach((carpark) => {
           const mapping = allCarparks.find(
             (c) => c.carpark_number === carpark.car_park_no
           );
-          const mapping2 = mapping.carpark_info[0];
-          return {
-            carpark_no: carpark.car_park_no,
-            lot_type: mapping2.lot_type,
-            lots_total: mapping2.total_lots,
-            lots_available: mapping2.lots_available,
-            address: carpark.address,
-            free_parking: carpark.free_parking,
-            night_parking: carpark.night_parking,
-          };
-        }
-      );
-      setFilteredCarparks(carparksFormatted);
-    });
+          if (mapping) {
+            // only returns if we can find from the first API
+            const mapping2 = mapping.carpark_info[0];
+            const result = {
+              carpark_no: carpark.car_park_no,
+              lot_type: mapping2.lot_type,
+              lots_total: mapping2.total_lots,
+              lots_available: mapping2.lots_available,
+              address: carpark.address,
+              free_parking: carpark.free_parking,
+              night_parking: carpark.night_parking,
+            };
+            carparksFormatted.push(result);
+          }
+        });
+        setFilteredCarparks(carparksFormatted);
+      })
+      .catch((error) => console.log(error));
   });
 };
