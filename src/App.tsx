@@ -1,9 +1,7 @@
-import { stringify } from "querystring";
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import Display from "./components/Display";
-import ICarpark from "./components/Interfaces/InterfaceCarpark";
-import { fetchCarparkAvailability, fetchCarparks } from "./Functions/Fetch";
+import { fetchCarparkAvailability } from "./Functions/Fetch";
 
 const App = () => {
   const [filteredCarparks, setFilteredCarparks] = useState<any[]>([]);
