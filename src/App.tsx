@@ -1,15 +1,10 @@
 import React, { useEffect } from "react";
 import "./App.css";
+import { fetchAvailability } from "./Functions/Fetch";
 
 const App = () => {
-  const fetchData = () => {
-    return fetch("https://api.data.gov.sg/v1/transport/carpark-availability")
-      .then((response) => response.json())
-      .then((data) => console.log(data));
-  };
-
   useEffect(() => {
-    fetchData();
+    fetchAvailability();
   }, []);
 
   return (
