@@ -30,21 +30,13 @@ const Display = (props) => {
   return (
     <Container>
       <Park>
-        <Header>Code</Header>
-        <Header>Available Lot</Header>
-        <Header>Total Lot</Header>
         <Header style={{ flex: 3 }}>Address</Header>
-        <Header style={{ flex: 3 }}>Free Parking</Header>
-        <Header>Night Parking</Header>
+        <Header>Lots</Header>
       </Park>
       {props.carparks.map((carpark) => (
         <Park key={carpark.carpark_no}>
-          <Info>{carpark.carpark_no}</Info>
-          <Info>{carpark.lots_available}</Info>
-          <Info>{carpark.lots_total}</Info>
           <Info style={{ flex: 3 }}>{carpark.address}</Info>
-          <Info style={{ flex: 3 }}>{carpark.free_parking}</Info>
-          <Info>{carpark.night_parking}</Info>
+          <Info>{`${carpark.lots_available} / ${carpark.lots_total}`}</Info>
         </Park>
       ))}
     </Container>
