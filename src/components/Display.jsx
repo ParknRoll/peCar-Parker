@@ -7,7 +7,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: space-around;
   padding: 1%;
-  margin: 0% 5%;
+  margin: 0% 10%;
 `;
 
 const Park = styled.div`
@@ -33,10 +33,12 @@ const Display = (props) => {
     <Container>
       <Park>
         <Header style={{ flex: 3 }}>Address</Header>
-        <Header>Lots</Header>
+        <Header>Lots Available</Header>
       </Park>
       {props.carparks.length === 0 ? (
-        <div style={{ textAlign: "center" }}>No Results Found!</div>
+        <Park>
+          <p>No Results Found!</p>
+        </Park>
       ) : (
         props.carparks.map((carpark) => (
           <Park key={carpark.carpark_no}>
