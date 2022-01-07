@@ -1,8 +1,6 @@
-export const getCurrentLocation = (): {
-  found: boolean;
-  latitude: number;
-  longitude: number;
-} => {
+import ILocation from "../components/Interfaces/InterfaceLocation";
+
+export const getCurrentLocation = (): ILocation => {
   const result = { found: false, latitude: -1, longitude: -1 };
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position) => {
