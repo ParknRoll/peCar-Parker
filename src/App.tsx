@@ -1,16 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
+import { fetchAvailability, fetchInformation } from "./Functions/Fetch";
 
 const App = () => {
-  const fetchData = () => {
-    return fetch("https://api.data.gov.sg/v1/transport/carpark-availability")
-      .then((response) => response.json())
-      .then((data) => console.log(data));
-  };
+  const [state, setstate] = useState(fetchAvailability());
+
+  const updateState = () => setstate(fetchAvailability());
 
   useEffect(() => {
-    fetchData();
+    const internal = setInterval(updateState, 60000);
+    return () => {
+      clearInterval(internal);
+    };
   }, []);
+
+  fetchInformation();
 
   return (
     <div className="App">
