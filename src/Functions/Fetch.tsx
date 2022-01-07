@@ -13,5 +13,5 @@ export const fetchInformation = async () => {
   );
   const data = await response.json();
   console.log(data);
-  return data.result;
+  return data.result.records;
 };
